@@ -1,5 +1,20 @@
+ELMNT = nil
 local type
 local ColorCodes = {"~r~", "~g~", "~o~", "~w~", "~y~", "~s~"}
+
+
+Citizen.CreateThread(function()
+	while ELMNT == nil do
+		TriggerEvent('elmnt:project_element', function(obj) ELMNT = obj end)
+		Citizen.Wait(0)
+	end
+	
+	while ELMNT.GetPlayerData().job == nil do
+		Citizen.Wait(10)
+	end
+	
+	PlayerData = ELMNT.GetPlayerData()
+end)
 
 AddEventHandler("elmnt_pushNotification:sendNotification")
 RegisterNetEvent("elmnt_pushNotification:sendNotification", function(msg)
