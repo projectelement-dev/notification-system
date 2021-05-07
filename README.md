@@ -9,3 +9,7 @@ To display a notification simply make a call like below (Client-Side) :
 ```lua
 ELMNT.ShowNotification("Your Message")
 ```
+
+## Requirements
+
+- [Element-Framework](https://github.com/projectelement-dev/Element-Framework)
